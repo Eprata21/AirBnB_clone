@@ -4,13 +4,13 @@ import unittest
 import json
 import pep8
 import datetime
-
 from models.city import City
 from models.base_model import BaseModel
 
 
 class TestCity(unittest.TestCase):
     """Test City class implementation"""
+
     def test_docstrings(self):
         """check docstrings documentation"""
         self.assertIsNotNone(City.__doc__)
@@ -30,6 +30,7 @@ class TestCity(unittest.TestCase):
         with self.subTest(msg='Attributes'):
             self.assertIsInstance(City.name, str)
             self.assertIsInstance(City.state_id, str)
+
 
 if __name__ == '__main__':
     unittest.main()
