@@ -1,2 +1,61 @@
 HBNB - The Console
 This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
+
+First step: Write a command interpreter to manage your AirBnB objects.
+his first step is very important because it will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end in
+
+What’s a command interpreter?
+Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
+
+Create a new object (ex: a new User or a new Place)
+Retrieve an object from a file, a database etc…
+Do operations on objects (count, compute stats, etc…)
+Update attributes of an object
+Destroy an object
+Execution
+Your could work like this in interactive mode:
+
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
+But also in non-interactive mode: (like the Shell project in C)
+
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+Commands:
+create - create an object
+show - show an object (based on id)
+destroy - destroy an object
+all - show all objects, of one type or all types
+update - Updates an instance based on the class name and id
+quit/EOF - quit the console
+help - see descriptions of commands
+To start console type in shell
+
+AirBnB_clone$ ./console.py
+(hbnb) 
