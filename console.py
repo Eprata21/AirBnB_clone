@@ -150,10 +150,10 @@ class HBNBCommand(cmd.Cmd):
     
     def do_count(self, arg):
         """Count current number of class instances"""
-        arguments =shlex.split(arg)
+        arguments =arg.split()
         count = 0
         for key, value in models.storage.all().items():
-            if arguments[0] == key.split('.')[0]:
+            if key.split('.')[0] == arguments[0]:
                 count += 1
         print(count)
 
