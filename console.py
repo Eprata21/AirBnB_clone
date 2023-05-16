@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 """The console"""
 
 import cmd
@@ -145,5 +147,33 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
+    
+    def do_count(self, arg):
+        """Count current number of class instances"""
+        arguments =shlex.split(arg)
+        count = 0
+        for key, value in models.storage.all().items():
+            if arguments[0] == key.split('.')[0]:
+                count += 1
+        print(count)
+
+    def precmd(self, arg):
+        """ executed just before the command line line is interpreted """
+        args = arg.split('.', 1)
+        if len(args) == 2:
+            cls_name = args[0]
+            args = args[1].split('(', 1)
+            command = args[0]
+            if len(args) == 2:
+                args = args[1].split(')', 1)
+                if len(args) == 2:
+                    _id = args[0]
+                    other_arguments = args[1]
+            line = command + " " + cls_name + " " + _id + " " + other_arguments
+            return line
+        else:
+            return arg
+
+
 if __name__ == '__main__':
         HBNBCommand().cmdloop()
